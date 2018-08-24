@@ -1,0 +1,9 @@
+{
+   "MySQL_Host": "localhost", 
+   "MySQL_Port": 3306, 
+   "MySQL_User": "root", 
+   "MySQL_Password": "Suksesmulia123#", 
+   "MySQL_Database": "simpleapi_db", 
+   "MySQL_Debug": false, 
+   "MySQL_ConLimit": 100
+}

@@ -1,0 +1,17 @@
+{
+  "name": "simpleapi-db",
+  "version": "1.0.0",
+  "description": "Simple REST API with MySQL Redis MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bambangs",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.10.6",
+    "mysql": "^2.5.4",
+    "redis": "latest",
+    "mongoose": "^5.2.8"
+  }
+}
