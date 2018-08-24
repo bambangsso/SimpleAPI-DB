@@ -5,5 +5,13 @@
    "MySQL_Password": "Suksesmulia123#", 
    "MySQL_Database": "simpleapi_db", 
    "MySQL_Debug": false, 
-   "MySQL_ConLimit": 100
+   "MySQL_ConLimit": 100,
+   "Redis_Host": "localhost",
+   "Redis_Port": 6379,
+   "MongoDB_Host": "localhost",
+   "MongoDB_Port": 27017,
+   "MongoDB_User": "",
+   "MongoDB_Password": "",
+   "MongoDB_Database": "test",   
+   "App_Port": 3000
 }

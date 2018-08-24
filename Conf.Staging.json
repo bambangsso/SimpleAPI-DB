@@ -1,9 +1,17 @@
 {
-   "MySQL_Host": "localhost", 
-   "MySQL_Port": 3306, 
+   "MySQL_Host": "10.140.0.21", 
+   "MySQL_Port": 3307, 
    "MySQL_User": "root", 
    "MySQL_Password": "Suksesmulia123#", 
    "MySQL_Database": "simpleapi_db", 
    "MySQL_Debug": false, 
-   "MySQL_ConLimit": 100
+   "MySQL_ConLimit": 100,
+   "Redis_Host": "10.140.0.21",
+   "Redis_Port": 6380,
+   "MongoDB_Host": "10.140.0.21",
+   "MongoDB_Port": 27018,
+   "MongoDB_User": "",
+   "MongoDB_Password": "",
+   "MongoDB_Database": "test",   
+   "App_Port": 3000
 }
