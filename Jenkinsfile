@@ -46,8 +46,9 @@ pipeline {
 
     stage('UI Test') {
       steps {
-        sh 'curl https://https://staging.bjtech.io/mongoRead'
-	sh 'curl https://https://staging.bjtech.io/mysql'
+	sh 'curl https://staging.bjtech.io/mongoSave'
+        sh 'curl https://staging.bjtech.io/mongoRead'
+	sh 'curl https://staging.bjtech.io/mysql'
       }
     }
 
