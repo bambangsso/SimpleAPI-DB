@@ -46,7 +46,8 @@ pipeline {
 
     stage('UI Test') {
       steps {
-        echo 'skipping'
+        sh 'curl https://https://staging.bjtech.io/mongoRead'
+	sh 'curl https://https://staging.bjtech.io/mysql'
       }
     }
 
