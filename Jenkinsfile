@@ -19,6 +19,12 @@ pipeline {
       }
     }
 
+    stage('Restart nginx') {
+      steps {
+        sh 'ssh jenkins@10.140.0.27 "sudo service nginx restart"'
+      }
+    }
+
 
 
   }
