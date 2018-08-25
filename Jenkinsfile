@@ -5,15 +5,15 @@ pipeline {
 
     stage('Upload application to staging') {
       steps {
-	sh 'ssh jenkins@10.140.0.22 "rm -fR SimpleAPI-DB && mkdir SimpleAPI-DB"'
-	sh 'scp -r . jenkins@10.140.0.22:/home/jenkins/SimpleAPI-DB'
-	sh 'ssh jenkins@10.140.0.22 "cd /home/jenkins/SimpleAPI-DB && rm -fR DOCKER_DB && cp ./DOCKER_APP/* . && rm -fR DOCKER_APP"'
+	sh 'ssh jenkins@10.140.0.22 "rm -fR ${JOB_NAME} && mkdir ${JOB_NAME}"'
+	sh 'scp -r . jenkins@10.140.0.22:/home/jenkins/${JOB_NAME}'
+	sh 'ssh jenkins@10.140.0.22 "cd /home/jenkins/${JOB_NAME} && rm -fR DOCKER_DB && cp ./DOCKER_APP/* . && rm -fR DOCKER_APP"'
       }
     }
 
     stage('Dockerizing application') {
       steps {
-	sh 'ssh jenkins@10.140.0.22 "cd /home/jenkins/SimpleAPI-DB && ./build-docker-app.sh SimpleAPI-DB"'
+	sh 'ssh jenkins@10.140.0.22 "cd /home/jenkins/${JOB_NAME} && ./build-docker-app.sh ${JOB_NAME}"'
       }
     }
 
