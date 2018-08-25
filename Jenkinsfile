@@ -12,6 +12,14 @@ pipeline {
       }
     }
 
+    stage('Upload application to staging') {
+      steps {
+	sh 'ssh jenkins@10.140.0.22 "rm -fR SimpleAPI-DB && mkdir SimpleAPI-DB"'
+	sh 'scp -r . jenkins@10.140.0.22:/home/jenkins/SimpleAPI-DB'
+      }
+    }
+
+
     stage('Adding nginx webhook') {
       steps {
         sh 'scp -r nginx*staging.conf jenkins@10.140.0.27:/tmp'
