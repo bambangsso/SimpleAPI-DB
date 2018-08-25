@@ -1,0 +1,20 @@
+version: '2'
+services:
+  redis:
+    image: redis:3.2-alpine
+    ports:
+      - "$Redis_PORT:6379"
+
+  mongo:
+    image: mongo
+    ports:
+      - "$MongoDB_PORT:27017"
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "$MySQL_PORT:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "cikapali99"
+    volumes:
+      - ./:/docker-entrypoint-initdb.d

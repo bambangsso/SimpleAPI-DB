@@ -1,8 +1,8 @@
 {
    "MySQL_Host": "10.140.0.21", 
    "MySQL_Port": 3307, 
-   "MySQL_User": "root", 
-   "MySQL_Password": "Suksesmulia123#", 
+   "MySQL_User": "bjtech", 
+   "MySQL_Password": "fhouse", 
    "MySQL_Database": "simpleapi_db", 
    "MySQL_Debug": false, 
    "MySQL_ConLimit": 100,
