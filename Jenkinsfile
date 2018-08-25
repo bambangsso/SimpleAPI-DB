@@ -3,7 +3,21 @@ pipeline {
 
   stages {
 
-    stage('Upload application to staging') {
+    stage('Upload DB to staging') {
+      steps {
+        sh 'ssh jenkins@10.140.0.21 "rm -fR ${JOB_NAME} && mkdir ${JOB_NAME}"'
+        sh 'scp -r . jenkins@10.140.0.21:/home/jenkins/${JOB_NAME}'
+        sh 'ssh jenkins@10.140.0.21 "cd /home/jenkins/${JOB_NAME} && rm -fR DOCKER_APP && cp ./DOCKER_DB/* . && rm -fR DOCKER_DB"'
+      }
+    }
+
+    stage('Dockerizing DB') {
+      steps {
+        sh 'ssh jenkins@10.140.0.21 "cd /home/jenkins/${JOB_NAME} && ./build-docker-db.sh ${JOB_NAME}"'
+      }
+    }
+
+    stage('Upload APP to staging') {
       steps {
 	sh 'ssh jenkins@10.140.0.22 "rm -fR ${JOB_NAME} && mkdir ${JOB_NAME}"'
 	sh 'scp -r . jenkins@10.140.0.22:/home/jenkins/${JOB_NAME}'
@@ -11,7 +25,7 @@ pipeline {
       }
     }
 
-    stage('Dockerizing application') {
+    stage('Dockerizing APP') {
       steps {
 	sh 'ssh jenkins@10.140.0.22 "cd /home/jenkins/${JOB_NAME} && ./build-docker-app.sh ${JOB_NAME}"'
       }
@@ -30,7 +44,17 @@ pipeline {
       }
     }
 
+    stage('UI Test') {
+      steps {
+        echo 'skipping'
+      }
+    }
 
+    stage('Integration Test') {
+      steps {
+        echo 'skipping'
+      }
+    }
 
   }
 
