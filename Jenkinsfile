@@ -13,7 +13,7 @@ pipeline {
 
     stage('Dockerizing application') {
       steps {
-	sh 'ssh jenkins@10.140.0.22 "cd /home/jenkins/SimpleAPI-DB && ./build-docker-app.sh"'
+	sh 'ssh jenkins@10.140.0.22 "cd /home/jenkins/SimpleAPI-DB && ./build-docker-app.sh SimpleAPI-DB"'
       }
     }
 
