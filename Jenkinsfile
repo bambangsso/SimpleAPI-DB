@@ -6,8 +6,8 @@ pipeline {
     stage('Upload DB to staging') {
       steps {
         sh 'ssh jenkins@10.140.0.21 "rm -fR ${JOB_NAME} && mkdir ${JOB_NAME}"'
-        sh 'scp -r . jenkins@10.140.0.21:/home/jenkins/${JOB_NAME}'
-        sh 'ssh jenkins@10.140.0.21 "cd /home/jenkins/${JOB_NAME} && rm -fR DOCKER_APP && cp ./DOCKER_DB/* . && rm -fR DOCKER_DB"'
+        sh 'scp -r DOCKER_DB/ init.sql Conf.Staging.json Conf.Production.json Conf.Development.json jenkins@10.140.0.21:/home/jenkins/${JOB_NAME}'
+        sh 'ssh jenkins@10.140.0.21 "cd /home/jenkins/${JOB_NAME} && cp ./DOCKER_DB/* . && rm -fR DOCKER_DB && mkdir db && cp init.sql db/" && rm -f init.sql'
       }
     }
 
