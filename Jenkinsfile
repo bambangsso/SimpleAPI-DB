@@ -2,7 +2,13 @@ pipeline {
   agent any
 
   stages {
+    stage('test') {
+      steps {
+        sh 'ssh jenkins@10.140.0.21 "cd ab"'
+      }
+    }
 
+/*
     stage('Upload DB to staging') {
       steps {
         sh 'ssh jenkins@10.140.0.21 "rm -fR ${JOB_NAME} && mkdir ${JOB_NAME}"'
@@ -51,12 +57,13 @@ pipeline {
 	sh 'curl https://staging.bjtech.io/mysql'
       }
     }
-
+*/
     stage('Integration Test') {
       steps {
         echo 'skipping'
       }
     }
+    
 
   }
 
