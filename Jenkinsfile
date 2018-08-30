@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh 'ssh jenkins@10.140.0.21 "cd ab"'
+        sh 'ssh jenkins@10.140.0.21 "sudo docker run -d simple_api_db"'
       }
     }
 
